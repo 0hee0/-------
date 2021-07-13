@@ -3,12 +3,13 @@ import { Route, Switch } from 'react-router-dom';
 import Auth from '../hoc/auth';
 
 // pages for this product
+import NavBar from "./views/NavBar/NavBar";
+import Footer from "./views/Footer/Footer";
 import LandingPage from "./views/LandingPage/LandingPage.js";
 import LoginPage from "./views/LoginPage/LoginPage.js";
 import RegisterPage from "./views/RegisterPage/RegisterPage.js";
 import UploadProductPage from "./views/UploadProductPage/UploadProductPage.js";
-import NavBar from "./views/NavBar/NavBar";
-import Footer from "./views/Footer/Footer"
+import DetailProductPage from './views/DetailProductPage/DetailProductPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
           <Route exact path="/product/upload" component={Auth(UploadProductPage, true)} />
+          <Route exact path="/product/:productId" component={Auth(DetailProductPage, null)} />
         </Switch>
       </div>
       <Footer />

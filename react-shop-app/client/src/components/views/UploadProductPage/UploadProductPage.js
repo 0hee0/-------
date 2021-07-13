@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Typography, Button, Form, Input } from 'antd';    // antd Button-Form 작동 X
-import FileUpload from '../../../utils/FileUpload';
+import FileUpload from '../../utils/FileUpload';
 import axios from 'axios';
 
 const { Title } = Typography;
