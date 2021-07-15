@@ -10,6 +10,7 @@ import LoginPage from "./views/LoginPage/LoginPage.js";
 import RegisterPage from "./views/RegisterPage/RegisterPage.js";
 import UploadProductPage from "./views/UploadProductPage/UploadProductPage.js";
 import DetailProductPage from './views/DetailProductPage/DetailProductPage';
+import CartPage from './views/CartPage/CartPage';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
           <Route exact path="/product/upload" component={Auth(UploadProductPage, true)} />
           <Route exact path="/product/:productId" component={Auth(DetailProductPage, null)} />
+          <Route exact path="/user/cart" component={Auth(CartPage, true)} />
         </Switch>
       </div>
       <Footer />

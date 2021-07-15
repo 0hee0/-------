@@ -2,7 +2,10 @@ import {
     LOGIN_USER,
     REGISTER_USER,
     AUTH_USER,
-    LOGOUT_USER
+    LOGOUT_USER,
+    ADD_TO_CART,
+    GET_CART_ITEMS,
+    REMOVE_CART_ITEM
 } from '../_actions/types';
 
 export default function (state = {}, action) {
@@ -15,6 +18,23 @@ export default function (state = {}, action) {
             return { ...state, userData: action.payload }
         case LOGOUT_USER:
             return { ...state }    
+        case ADD_TO_CART:
+            return { ...state, 
+                userData: { 
+                    ...state.userData,
+                    cart: action.payload    // routes/users 에서 보내주는 userInfo.cart 에 해당
+                }
+            }
+        case GET_CART_ITEMS:
+            return { ...state, cartDetail: action.payload }
+        case REMOVE_CART_ITEM:
+            return { ...state, 
+                cartDetail: action.payload.productInfo, 
+                userData: {
+                    ...state.userData,
+                    cart: action.payload.cart
+                }
+            }
         default: 
             return state;
     }
